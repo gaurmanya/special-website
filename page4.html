@@ -39,4 +39,71 @@
       position: fixed;
       bottom: 30px;
       left: 50%;
-      transform: translateX(-
+      transform: translateX(-50%);
+    }
+
+    .nav-container a {
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      background: #ff6f61;
+      font-size: 22px;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Blossom animation with sway */
+    .blossom {
+      position: absolute;
+      top: -50px;
+      font-size: 20px;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity:1; }
+      50% { transform: translateY(50vh) translateX(20px) rotate(180deg); }
+      100% { transform: translateY(100vh) translateX(-20px) rotate(360deg); opacity:0; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Happy Rose Day 💖</h1>
+
+<p>
+  To the one who holds my heart,<br>
+  You are the most beautiful part of my life.<br>
+  May every moment we share be filled with joy,<br>
+  Just like these blossoms floating softly for you.<br>
+  You are my world, my love, my everything. 🌸
+</p>
+
+<div class="nav-container">
+  <a href="page3.html">⬅ Back</a>
+</div>
+
+<script>
+  const blossomCount = 35; // More blossoms
+  for(let i=0; i<blossomCount; i++){
+    const blossom = document.createElement('div');
+    blossom.textContent = '🌸';
+    blossom.className = 'blossom';
+    blossom.style.left = Math.random() * window.innerWidth + 'px';
+    blossom.style.fontSize = (15 + Math.random() * 20) + 'px';
+    blossom.style.animationDuration = (6 + Math.random() * 6) + 's';
+    blossom.style.animationDelay = (Math.random() * 5) + 's';
+    blossom.style.opacity = Math.random() * 0.8 + 0.2; // Vary opacity
+    document.body.appendChild(blossom);
+  }
+</script>
+
+</body>
+</html>
