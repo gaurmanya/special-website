@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Funny Meme 🌹</title>
+  <title>Funny Meme 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      margin:0;
+      padding:0;
       font-family: Comic Sans MS, cursive;
-      text-align: center;
-      background: #fffbe6;
-      overflow: hidden;
+      text-align:center;
+      background: linear-gradient(to bottom, #fffbe6, #ffe6eb);
+      overflow:hidden;
+      height:100vh;
     }
 
     img {
-      max-width: 300px;
-      margin-top: 30px;
+      max-width:300px;
+      margin-top:30px;
+      opacity:0;
+      animation: fadeIn 2s forwards 1s;
     }
 
-    /* Navigation buttons at bottom */
     .nav-container {
       position: fixed;
       bottom: 20px;
@@ -34,48 +37,50 @@
       font-weight: bold;
       color: #fff;
       background: #ff6f61;
-      font-size: 24px;
+      font-size: 22px;
     }
 
-    /* Rose emoji animation */
     .rose {
       position: absolute;
       top: -50px;
-      font-size: 25px;
+      font-size: 20px;
       pointer-events: none;
       animation: fall linear infinite;
     }
 
     @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity:1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity:1; }
+      50% { transform: translateY(50vh) translateX(20px) rotate(180deg); }
+      100% { transform: translateY(100vh) translateX(-20px) rotate(360deg); opacity:0; }
+    }
+
+    @keyframes fadeIn {
+      from {opacity:0;}
+      to {opacity:1;}
     }
   </style>
 </head>
 <body>
 
-<img
-  src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUycnRzcjN1bDBib3FhcGZrMjB3cjI0dHJzM3d0bGt4em43d2J4d2JkaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/80UfbZwR9RxqEBlRhh/giphy.gif"
-  alt="Funny Meme GIF"
->
+<img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUycnRzcjN1bDBib3FhcGZrMjB3cjI0dHJzM3d0bGt4em43d2J4d2JkaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/80UfbZwR9RxqEBlRhh/giphy.gif" alt="Funny Meme GIF">
 
-<!-- Navigation buttons -->
 <div class="nav-container">
   <a href="page2.html">⬅ Back</a>
   <a href="page4.html">Next 🌹</a>
 </div>
 
 <script>
-  // Create falling roses
-  const roseCount = 25;
-  for(let i=0; i<roseCount; i++){
-    const rose = document.createElement('div');
-    rose.textContent = '🌹';
-    rose.className = 'rose';
-    rose.style.left = Math.random() * window.innerWidth + 'px';
-    rose.style.animationDuration = (4 + Math.random() * 4) + 's';
-    rose.style.animationDelay = (Math.random() * 5) + 's';
-    document.body.appendChild(rose);
+  const blossomCount = 30;
+  for(let i=0;i<blossomCount;i++){
+    const blossom=document.createElement('div');
+    blossom.textContent='🌸';
+    blossom.className='rose';
+    blossom.style.left=Math.random()*window.innerWidth+'px';
+    blossom.style.fontSize=(15+Math.random()*20)+'px';
+    blossom.style.animationDuration=(6+Math.random()*6)+'s';
+    blossom.style.animationDelay=(Math.random()*5)+'s';
+    blossom.style.opacity=Math.random()*0.8+0.2;
+    document.body.appendChild(blossom);
   }
 </script>
 
