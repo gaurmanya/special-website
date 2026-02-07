@@ -19,21 +19,6 @@
       text-shadow: 2px 2px 5px #ffa3b1;
     }
 
-    /* Rose animation */
-    .rose {
-      position: absolute;
-      top: -50px;
-      width: 40px;
-      height: 40px;
-      pointer-events: none;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity:1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
-    }
-
     /* Navigation buttons */
     .nav-container {
       display: flex;
@@ -52,6 +37,20 @@
       font-size: 20px;
     }
 
+    /* Rose emoji animation */
+    .rose {
+      position: absolute;
+      top: -50px;
+      font-size: 25px;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity:1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
+    }
+
   </style>
 </head>
 <body>
@@ -60,24 +59,4 @@
 
 <!-- Navigation buttons -->
 <div class="nav-container">
-  <a href="index.html">⬅ Back</a>
-  <a href="page3.html">Next 🌹</a>
-</div>
-
-<script>
-  // Number of roses falling
-  const roseCount = 30;
-
-  for(let i=0; i<roseCount; i++){
-    const rose = document.createElement('img');
-    rose.src = 'https://i.ibb.co/7zNwftg/rose.png'; // rose image
-    rose.className = 'rose';
-    rose.style.left = Math.random() * window.innerWidth + 'px';
-    rose.style.animationDuration = (5 + Math.random() * 5) + 's';
-    rose.style.animationDelay = (Math.random() * 5) + 's';
-    document.body.appendChild(rose);
-  }
-</script>
-
-</body>
-</html>
+  <a href="index
