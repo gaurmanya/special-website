@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enter Password</title>
+
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:Arial, sans-serif;
+      background:#fff0f5;
+      animation:fadeIn 1.2s;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0}
+      to{opacity:1}
+    }
+
+    .box{
+      background:white;
+      padding:40px;
+      border-radius:25px;
+      text-align:center;
+      box-shadow:0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    h1{
+      margin-bottom:10px;
+    }
+
+    input{
+      padding:12px 20px;
+      border-radius:20px;
+      border:1px solid #ff4d6d;
+      outline:none;
+      font-size:16px;
+      width:200px;
+      text-align:center;
+    }
+
+    button{
+      margin-top:15px;
+      padding:12px 30px;
+      border:none;
+      border-radius:25px;
+      background:#ff4d6d;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#e63b5f;
+    }
+     p{
+      color:#555;
+    }
+  
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>🔒 Private</h1>
+    <p>Hint: rose🌹</p>
+
+    <input id="pw" type="password" placeholder="Enter password">
+    <br>
+
+    <button onclick="check()">Enter 🌸</button>
+  </div>
+
+  <script>
+    function check(){
+      if(document.getElementById("pw").value === "rose"){
+        window.location.href = "page2.html";
+      } else {
+        alert("Wrong password 😜");
+      }
+    }
+  </script>
+
+</body>
+</html>
