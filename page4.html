@@ -12,6 +12,8 @@
       background: linear-gradient(to bottom, #ffe6eb, #fff0f5);
       overflow: hidden;
       height: 100vh;
+      opacity: 0; /* Start hidden for fade-in */
+      transition: opacity 2s ease;
     }
 
     h1 {
@@ -52,13 +54,11 @@
       font-size: 22px;
     }
 
-    /* Fade-in animation */
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
     }
 
-    /* Blossom animation with sway */
     .blossom {
       position: absolute;
       top: -50px;
@@ -87,11 +87,26 @@
 </p>
 
 <div class="nav-container">
-  <a href="page3.html">⬅ Back</a>
+  <a href="page3.html" id="backBtn">⬅ Back</a>
 </div>
 
 <script>
-  const blossomCount = 35; // More blossoms
+  // Fade-in when page loads
+  window.onload = () => {
+    document.body.style.opacity = 1;
+  };
+
+  // Fade-out when clicking back
+  document.getElementById('backBtn').addEventListener('click', function(e){
+    e.preventDefault(); // Stop immediate navigation
+    document.body.style.opacity = 0;
+    setTimeout(() => {
+      window.location = this.href;
+    }, 1000); // Wait for fade-out
+  });
+
+  // Blossom animation
+  const blossomCount = 35;
   for(let i=0; i<blossomCount; i++){
     const blossom = document.createElement('div');
     blossom.textContent = '🌸';
@@ -100,7 +115,7 @@
     blossom.style.fontSize = (15 + Math.random() * 20) + 'px';
     blossom.style.animationDuration = (6 + Math.random() * 6) + 's';
     blossom.style.animationDelay = (Math.random() * 5) + 's';
-    blossom.style.opacity = Math.random() * 0.8 + 0.2; // Vary opacity
+    blossom.style.opacity = Math.random() * 0.8 + 0.2;
     document.body.appendChild(blossom);
   }
 </script>
