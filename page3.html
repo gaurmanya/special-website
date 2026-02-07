@@ -1,35 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Funny Meme Page</title>
-  
+  <title>Funny Meme 🌹</title>
   <style>
     body {
       margin: 0;
-      
       padding: 0;
+      font-family: Comic Sans MS, cursive;
+      text-align: center;
       background: #fffbe6;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      overflow: hidden;
     }
+
     img {
-      max-width: 100%;
-      height: auto;
-      cursor: pointer; /* shows it’s clickable */
+      max-width: 300px;
+      margin-top: 30px;
+    }
+
+    /* Navigation buttons at bottom */
+    .nav-container {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
+    }
+
+    .nav-container a {
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      background: #ff6f61;
+      font-size: 24px;
+    }
+
+    /* Rose emoji animation */
+    .rose {
+      position: absolute;
+      top: -50px;
+      font-size: 25px;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity:1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Clickable GIF -->
-  
-    <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUycnRzcjN1bDBib3FhcGZrMjB3cjI0dHJzM3d0bGt4em43d2J4d2JkaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/80UfbZwR9RxqEBlRhh/giphy.gif" alt="Funny Meme">
-  </a>
-  
-<br><br>
-<a class="back-btn" href="page2.html">⬅ Back</a>
-<a class="next-btn" href="page4.html">Next 🌹</a>
+<img
+  src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUycnRzcjN1bDBib3FhcGZrMjB3cjI0dHJzM3d0bGt4em43d2J4d2JkaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/80UfbZwR9RxqEBlRhh/giphy.gif"
+  alt="Funny Meme GIF"
+>
+
+<!-- Navigation buttons -->
+<div class="nav-container">
+  <a href="page2.html">⬅ Back</a>
+  <a href="page4.html">Next 🌹</a>
+</div>
+
+<script>
+  // Create falling roses
+  const roseCount = 25;
+  for(let i=0; i<roseCount; i++){
+    const rose = document.createElement('div');
+    rose.textContent = '🌹';
+    rose.className = 'rose';
+    rose.style.left = Math.random() * window.innerWidth + 'px';
+    rose.style.animationDuration = (4 + Math.random() * 4) + 's';
+    rose.style.animationDelay = (Math.random() * 5) + 's';
+    document.body.appendChild(rose);
+  }
+</script>
+
 </body>
 </html>
